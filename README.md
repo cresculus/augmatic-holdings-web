@@ -18,4 +18,4 @@ Start command is already in `package.json` (`serve` on `$PORT`).
 
 ## Contact
 
-`brandon@augmaticholdings.com`
+`purchasing@augmaticholdings.com`
