@@ -270,84 +270,35 @@
   .ghost-link:hover{color:var(--ink)}
   .ghost-link:hover svg{transform:translateY(3px)}
 
-  /* specimen figure */
-  .specimen{
+  /* hero standard (replaces mark plate) */
+  .hero-standard{
     position:relative;
     background:var(--paper-2);
     border:1px solid var(--line);
     border-radius:2px;
-    padding:18px 20px 16px;
+    padding:clamp(28px,4vw,40px) clamp(24px,3.4vw,36px);
+    min-height:280px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
     background-image:
       linear-gradient(var(--line-soft) 1px, transparent 1px),
       linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
     background-size:26px 26px;
     background-position:center;
   }
-  .specimen-top,.specimen-bottom{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    font-family:var(--mono);
-    font-size:.56rem;
-    letter-spacing:.18em;
-    text-transform:uppercase;
-    color:var(--muted);
-  }
-  .specimen-top{padding-bottom:14px;border-bottom:1px solid var(--line-soft)}
-  .specimen-bottom{padding-top:14px;border-top:1px solid var(--line-soft)}
-
-  .specimen-stage{
-    position:relative;
-    aspect-ratio:1/1;
-    display:grid;
-    place-items:center;
-    margin:14px 0;
-  }
-  .specimen-stage::before{
-    content:"";
-    position:absolute;
-    width:76%;
-    aspect-ratio:1;
-    border-radius:50%;
-    border:1px dashed rgba(168,127,61,.38);
-  }
-  .specimen-stage::after{
-    content:"";
-    position:absolute;
-    width:56%;
-    aspect-ratio:1;
-    border-radius:50%;
-    border:1px solid rgba(168,127,61,.16);
-  }
-  .mark-large{
-    position:relative;
-    z-index:1;
-    width:46%;
-    height:auto;
-    color:var(--ink);
-    filter:drop-shadow(0 22px 28px rgba(126,90,36,.18));
-  }
-
-  /* ---------- MANIFESTO ---------- */
-  .manifesto{
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    padding:clamp(46px,6.5vh,72px) 0;
-    text-align:center;
-  }
-  .manifesto .label{display:block;margin-bottom:22px}
-  .manifesto-line{
-    margin:0 auto;
-    max-width:22ch;
+  .hero-standard .label{display:block;margin-bottom:18px}
+  .hero-standard-line{
+    margin:0;
+    max-width:14ch;
     font-family:var(--serif);
     font-weight:400;
-    font-size:clamp(1.55rem,3.2vw,2.5rem);
-    line-height:1.28;
+    font-size:clamp(1.65rem,2.8vw,2.35rem);
+    line-height:1.22;
     letter-spacing:-.02em;
     text-wrap:balance;
   }
-  .manifesto-line em{font-style:italic;font-weight:400}
+  .hero-standard-line em{font-style:italic;font-weight:400}
 
   /* ---------- SECTIONS ---------- */
   .section{padding:clamp(60px,9vh,100px) 0;scroll-margin-top:92px}
@@ -534,7 +485,7 @@
   /* ---------- RESPONSIVE ---------- */
   @media (max-width:960px){
     .hero-grid{grid-template-columns:minmax(0,1fr);gap:44px}
-    .specimen{max-width:380px;width:100%}
+    .hero-standard{max-width:480px;width:100%;min-height:0}
     .contact-grid{grid-template-columns:minmax(0,1fr);gap:18px}
   }
 
@@ -594,7 +545,7 @@
   <!-- ===== NAV ===== -->
   <header class="nav">
     <div class="wrap nav-inner">
-      <a class="brand" href="#top" aria-label="Augmatic Holdings — home">
+      <a class="brand" href="/" aria-label="Augmatic Holdings — home">
         <svg class="brand-mark" aria-hidden="true"><use href="#aug-mark"></use></svg>
         <span class="brand-text">
           <span class="brand-name">Augmatic</span>
@@ -603,7 +554,7 @@
       </a>
 
       <nav class="nav-links" aria-label="Primary">
-        <a href="#companies">Companies</a>
+        <a href="/companies.html">Companies</a>
         <a href="#contact">Contact</a>
       </nav>
 
@@ -643,86 +594,21 @@
               </svg>
             </a>
 
-            <a class="ghost-link" href="#companies">
+            <a class="ghost-link" href="/companies.html">
               View companies
               <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2.5 8h11M9.5 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
           </div>
         </div>
 
-        <div class="specimen reveal">
-          <div class="specimen-top">
-            <span>Fig. 01</span>
-            <span>Augmented Mark</span>
-          </div>
-          <div class="specimen-stage">
-            <svg class="mark-large" aria-hidden="true"><use href="#aug-mark"></use></svg>
-          </div>
-          <div class="specimen-bottom">
-            <span>Ink / Gold</span>
-            <span>Est. 2026</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== MANIFESTO / SLOGAN ===== -->
-    <section class="manifesto">
-      <div class="wrap">
-        <p class="label reveal">The Augmatic standard</p>
-        <p class="manifesto-line reveal">
-          Augmented by design. <em class="gold-foil">Automated by default.</em>
-        </p>
-      </div>
-    </section>
-
-    <!-- ===== COMPANIES ===== -->
-    <section class="section" id="companies">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <h2>Companies</h2>
-          <p class="note">Operating businesses, held and run under one roof.</p>
-        </div>
-
-        <div class="companies">
-          <article class="company reveal">
-            <span class="idx">01</span>
-            <div>
-              <h3>Private AI Systems</h3>
-              <p>A private system that keeps your data off big public clouds.</p>
-            </div>
-            <span class="tag">Hardware · Software</span>
-          </article>
-
-          <article class="company reveal">
-            <span class="idx">02</span>
-            <div>
-              <h3>MSP Device Lifecycle</h3>
-              <p>Programming, services, and consulting.</p>
-            </div>
-            <span class="tag">Services · Consulting</span>
-          </article>
-
-          <article class="company reveal">
-            <span class="idx">03</span>
-            <div>
-              <h3>Cloud Agent Marketplace</h3>
-              <p>Cloud agents for Azure and beyond.</p>
-            </div>
-            <span class="tag">Platform · Marketplace</span>
-          </article>
-
-          <article class="company reveal">
-            <span class="idx">04</span>
-            <div>
-              <h3>Super Pars</h3>
-              <p>An AI swing app for golf — with apparel alongside.</p>
-            </div>
-            <span class="tag">AI · Apparel</span>
-          </article>
-        </div>
+        <aside class="hero-standard reveal" aria-label="Augmatic standard">
+          <p class="label">The Augmatic standard</p>
+          <p class="hero-standard-line">
+            Augmented by design. <em class="gold-foil">Automated by default.</em>
+          </p>
+        </aside>
       </div>
     </section>
 
