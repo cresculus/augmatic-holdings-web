@@ -1,527 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Augmatic Holdings — Technology holdings. Built to operate.</title>
-<meta name="description" content="Augmatic Holdings LLC is a New York company for software, hardware, and consulting businesses — including private home systems and tools for MSPs." />
-<meta name="theme-color" content="#08090B" />
-<link rel="canonical" href="https://augmaticholdings.com/" />
-<link rel="icon" href="favicon.svg" type="image/svg+xml" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-<style>
-  :root{
-    --bg:#08090B;
-    --surface:#0E1013;
-    --surface-2:#121418;
-    --line:rgba(255,255,255,.09);
-    --line-strong:rgba(255,255,255,.16);
-    --text:#EAE8E3;
-    --muted:#8A8E96;
-    --accent:#C9A66B;
-    --radius:18px;
-    --max:1120px;
-    --ease:cubic-bezier(.22,.68,.24,1);
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Augmatic Holdings — Base metal to gold</title>
+  <meta name="description" content="Augmatic Holdings LLC. A boutique New York technology holding company. We elevate the companies we own — software, hardware, and consulting." />
+  <meta name="theme-color" content="#070809" />
+  <link rel="canonical" href="https://augmaticholdings.com/" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #070809;
+      --ink: #f2eee6;
+      --muted: #9a958c;
+      --line: rgba(242, 238, 230, 0.1);
+      --gold: #c9a66b;
+      --gold-soft: rgba(201, 166, 107, 0.16);
+      --steel: #8e949c;
+      --ease: cubic-bezier(0.22, 0.68, 0.24, 1);
+      --max: 1080px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Manrope", sans-serif;
+      background:
+        radial-gradient(1100px 700px at 8% -20%, rgba(201, 166, 107, 0.12), transparent 55%),
+        radial-gradient(900px 600px at 100% 0%, rgba(110, 120, 140, 0.08), transparent 50%),
+        linear-gradient(180deg, #070809 0%, #0c0d10 50%, #08090b 100%);
+      min-height: 100vh;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
 
-  *,*::before,*::after{box-sizing:border-box}
+    /* NAV */
+    .nav {
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: blur(16px) saturate(140%);
+      background: rgba(7, 8, 9, 0.72);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 76px; gap: 20px;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 14px;
+      min-width: 0;
+    }
+    .brand img { width: 42px; height: 42px; border-radius: 10px; flex: none; }
+    .brand-text { display: flex; flex-direction: column; gap: 1px; }
+    .brand-name {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.35rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1;
+    }
+    .brand-name em { font-style: italic; color: var(--gold); font-weight: 500; }
+    .brand-slogan {
+      font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted); font-weight: 500;
+    }
+    .nav-links { display: flex; gap: 28px; color: var(--muted); font-size: 0.88rem; font-weight: 500; }
+    .nav-links a:hover { color: var(--ink); }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 18px; border-radius: 999px;
+      border: 1px solid rgba(201, 166, 107, 0.35);
+      background: linear-gradient(180deg, rgba(201, 166, 107, 0.14), rgba(201, 166, 107, 0.04));
+      color: var(--ink); font-size: 0.86rem; font-weight: 600;
+      transition: transform 0.25s var(--ease), border-color 0.25s var(--ease);
+    }
+    .btn:hover { transform: translateY(-1px); border-color: var(--gold); }
+    .btn .dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+      box-shadow: 0 0 10px rgba(201, 166, 107, 0.8);
+    }
 
-  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    /* HERO — one composition */
+    .hero {
+      min-height: calc(100vh - 76px);
+      display: grid;
+      align-items: center;
+      padding: 64px 0 72px;
+      position: relative;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .kicker {
+      display: inline-flex; align-items: center; gap: 12px;
+      margin: 0 0 28px;
+      font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted); font-weight: 500;
+    }
+    .kicker::before {
+      content: ""; width: 28px; height: 1px; background: var(--gold);
+    }
+    h1 {
+      margin: 0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 600;
+      font-size: clamp(3rem, 7.5vw, 5.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      max-width: 11ch;
+    }
+    h1 .gold {
+      display: block;
+      font-style: italic;
+      font-weight: 500;
+      color: var(--gold);
+      margin-top: 0.08em;
+    }
+    .lede {
+      margin: 26px 0 0;
+      max-width: 34rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .lede strong { color: var(--ink); font-weight: 600; }
+    .hero-actions {
+      display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: center;
+      margin-top: 36px;
+    }
+    .link-quiet {
+      font-size: 0.92rem; font-weight: 500; color: var(--ink);
+      border-bottom: 1px solid rgba(242, 238, 230, 0.22);
+      padding-bottom: 3px;
+    }
+    .link-quiet:hover { color: var(--gold); border-color: var(--gold); }
 
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    font-size:16px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    overflow-x:hidden;
-  }
+    .mark-stage {
+      justify-self: end;
+      width: min(100%, 340px);
+      aspect-ratio: 1;
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(160deg, rgba(201, 166, 107, 0.08), transparent 45%),
+        rgba(255, 255, 255, 0.02);
+      display: grid; place-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .mark-stage::before {
+      content: "";
+      position: absolute; inset: -40%;
+      background: conic-gradient(from 210deg, transparent, rgba(201, 166, 107, 0.07), transparent 40%);
+      animation: spin 18s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(1turn); } }
+    .mark-stage img {
+      width: 68%; height: 68%; position: relative; z-index: 1;
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.45));
+    }
+    .mark-caption {
+      position: absolute; bottom: 18px; left: 0; right: 0; z-index: 1;
+      text-align: center;
+      font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--muted);
+    }
 
-  /* ambient light */
-  body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:0;
-    background:
-      radial-gradient(900px 620px at 12% -12%, rgba(201,166,107,.11), transparent 62%),
-      radial-gradient(760px 520px at 102% -4%, rgba(96,124,196,.09), transparent 60%),
-      radial-gradient(700px 500px at 50% 118%, rgba(201,166,107,.05), transparent 65%);
-  }
+    /* PROCESS STRIP */
+    .process {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 22px 0;
+    }
+    .process ol {
+      list-style: none; margin: 0; padding: 0;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    }
+    .process li {
+      display: flex; gap: 14px; align-items: baseline;
+      color: var(--muted); font-size: 0.92rem;
+    }
+    .process b {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.35rem; color: var(--gold); font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    .process span { color: var(--ink); font-weight: 500; }
 
-  ::selection{background:rgba(201,166,107,.28);color:#fff}
+    /* COMPANIES */
+    .section { padding: 88px 0; scroll-margin-top: 90px; }
+    .section-head { margin-bottom: 36px; max-width: 36rem; }
+    .section-head h2 {
+      margin: 0 0 10px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 600; letter-spacing: -0.03em;
+    }
+    .section-head p { margin: 0; color: var(--muted); }
 
-  a{color:inherit;text-decoration:none}
+    .companies { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+    .companies li { border-bottom: 1px solid var(--line); }
+    .companies a {
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      gap: 18px;
+      align-items: baseline;
+      padding: 26px 4px;
+      transition: background 0.3s var(--ease);
+    }
+    .companies a:hover { background: linear-gradient(90deg, var(--gold-soft), transparent 55%); }
+    .companies .n {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      color: var(--gold); font-size: 1.25rem; font-style: italic;
+    }
+    .companies .name {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.55rem; font-weight: 600; letter-spacing: -0.02em;
+      display: block; margin-bottom: 4px;
+    }
+    .companies .blurb { color: var(--muted); font-size: 0.95rem; max-width: 34rem; }
+    .companies .meta {
+      font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--steel); white-space: nowrap;
+    }
 
-  .wrap{
-    position:relative;
-    z-index:1;
-    width:100%;
-    max-width:var(--max);
-    margin:0 auto;
-    padding:0 28px;
-  }
+    /* CONTACT */
+    .contact {
+      padding: 100px 0 110px;
+      border-top: 1px solid var(--line);
+    }
+    .contact-grid {
+      display: grid; grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px; align-items: end;
+    }
+    .contact h2 {
+      margin: 0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 600; letter-spacing: -0.03em; line-height: 1.05;
+    }
+    .contact h2 em { font-style: italic; color: var(--gold); font-weight: 500; }
+    .contact .sub { margin: 16px 0 0; color: var(--muted); max-width: 28rem; }
+    .mail {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.3rem, 3vw, 1.9rem);
+      font-weight: 500; letter-spacing: -0.02em;
+      border-bottom: 1px solid rgba(201, 166, 107, 0.35);
+      padding-bottom: 8px;
+      justify-self: end;
+    }
+    .mail:hover { color: var(--gold); border-color: var(--gold); }
 
-  /* ---------- NAV ---------- */
-  .nav{
-    position:sticky;
-    top:0;
-    z-index:50;
-    background:rgba(8,9,11,.72);
-    backdrop-filter:blur(14px) saturate(140%);
-    -webkit-backdrop-filter:blur(14px) saturate(140%);
-    border-bottom:1px solid var(--line);
-  }
-  .nav-inner{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
-    height:72px;
-  }
-  .brand{
-    display:flex;
-    align-items:center;
-    gap:11px;
-    font-weight:600;
-    letter-spacing:-.015em;
-    font-size:1rem;
-  }
-  .brand svg{display:block;color:var(--accent);flex:none}
-  .brand span b{font-weight:600}
-  .brand span i{font-style:normal;color:var(--muted);font-weight:400}
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 40px;
+      color: var(--muted); font-size: 0.8rem;
+      display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between;
+    }
+    footer .slogan {
+      letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.68rem; color: var(--steel);
+    }
 
-  .nav-links{
-    display:flex;
-    align-items:center;
-    gap:30px;
-    font-size:.875rem;
-    color:var(--muted);
-  }
-  .nav-links a{transition:color .25s var(--ease)}
-  .nav-links a:hover{color:var(--text)}
-
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    gap:9px;
-    padding:11px 20px;
-    border-radius:999px;
-    border:1px solid var(--line-strong);
-    font-size:.875rem;
-    font-weight:500;
-    color:var(--text);
-    background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.012));
-    transition:border-color .25s var(--ease), background .25s var(--ease), transform .25s var(--ease);
-    white-space:nowrap;
-  }
-  .btn:hover{
-    border-color:rgba(201,166,107,.55);
-    background:linear-gradient(180deg,rgba(201,166,107,.14),rgba(201,166,107,.04));
-    transform:translateY(-1px);
-  }
-  .btn .dot{
-    width:5px;height:5px;border-radius:50%;
-    background:var(--accent);
-    box-shadow:0 0 10px rgba(201,166,107,.9);
-  }
-
-  /* ---------- HERO ---------- */
-  .hero{
-    padding:clamp(80px,13vh,150px) 0 clamp(70px,10vh,120px);
-  }
-  .eyebrow{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-    font-size:.7rem;
-    letter-spacing:.16em;
-    text-transform:uppercase;
-    color:var(--muted);
-    margin:0 0 30px;
-  }
-  .eyebrow::before{
-    content:"";
-    width:26px;height:1px;
-    background:var(--accent);
-    opacity:.8;
-  }
-
-  h1{
-    margin:0;
-    font-size:clamp(2.5rem,7.2vw,5.15rem);
-    line-height:1.02;
-    letter-spacing:-.035em;
-    font-weight:500;
-    text-wrap:balance;
-  }
-  h1 .serif{
-    display:block;
-    font-family:"Instrument Serif",Georgia,"Times New Roman",serif;
-    font-style:italic;
-    font-weight:400;
-    letter-spacing:-.02em;
-    color:var(--accent);
-    margin-top:.06em;
-  }
-
-  .hero p.lede{
-    max-width:640px;
-    margin:32px 0 0;
-    font-size:clamp(1rem,1.5vw,1.125rem);
-    line-height:1.7;
-    color:var(--muted);
-    text-wrap:pretty;
-  }
-  .hero p.lede strong{color:var(--text);font-weight:500}
-
-  .hero-actions{
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    gap:14px 26px;
-    margin-top:44px;
-  }
-  .link-arrow{
-    display:inline-flex;
-    align-items:center;
-    gap:9px;
-    font-size:.9rem;
-    font-weight:500;
-    color:var(--text);
-    padding-bottom:3px;
-    border-bottom:1px solid var(--line-strong);
-    transition:border-color .25s var(--ease), color .25s var(--ease);
-  }
-  .link-arrow svg{transition:transform .3s var(--ease)}
-  .link-arrow:hover{border-color:var(--accent);color:var(--accent)}
-  .link-arrow:hover svg{transform:translateX(3px)}
-
-  /* ---------- SECTION HEAD ---------- */
-  .section{padding:clamp(60px,9vh,110px) 0;scroll-margin-top:88px}
-  .section-head{
-    display:flex;
-    align-items:flex-end;
-    justify-content:space-between;
-    gap:28px;
-    flex-wrap:wrap;
-    padding-bottom:26px;
-    border-bottom:1px solid var(--line);
-    margin-bottom:clamp(34px,5vh,52px);
-  }
-  h2{
-    margin:0;
-    font-size:clamp(1.6rem,3.2vw,2.3rem);
-    font-weight:500;
-    letter-spacing:-.028em;
-    line-height:1.15;
-    text-wrap:balance;
-  }
-  .section-head .note{
-    margin:0;
-    max-width:340px;
-    font-size:.9rem;
-    color:var(--muted);
-    line-height:1.65;
-  }
-
-  /* ---------- CARDS ---------- */
-  .grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(268px,1fr));
-    gap:16px;
-  }
-  .card{
-    position:relative;
-    display:flex;
-    flex-direction:column;
-    min-height:258px;
-    padding:30px 28px 28px;
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    background:
-      linear-gradient(180deg,rgba(255,255,255,.032),rgba(255,255,255,0) 55%),
-      var(--surface);
-    overflow:hidden;
-    transition:transform .4s var(--ease), border-color .4s var(--ease), background .4s var(--ease);
-  }
-  .card::after{
-    content:"";
-    position:absolute;
-    left:0;right:0;top:0;
-    height:1px;
-    background:linear-gradient(90deg,transparent,rgba(201,166,107,.7),transparent);
-    opacity:0;
-    transition:opacity .4s var(--ease);
-  }
-  .card:hover{
-    transform:translateY(-5px);
-    border-color:rgba(201,166,107,.34);
-    background:
-      linear-gradient(180deg,rgba(201,166,107,.06),rgba(255,255,255,0) 58%),
-      var(--surface-2);
-  }
-  .card:hover::after{opacity:1}
-
-  .card .num{
-    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-    font-size:.72rem;
-    letter-spacing:.12em;
-    color:var(--accent);
-    opacity:.85;
-  }
-  .card h3{
-    margin:auto 0 12px;
-    font-size:1.22rem;
-    font-weight:500;
-    letter-spacing:-.02em;
-    line-height:1.25;
-  }
-  .card p{
-    margin:0;
-    font-size:.925rem;
-    line-height:1.65;
-    color:var(--muted);
-    text-wrap:pretty;
-  }
-  .card .tag{
-    display:inline-block;
-    margin-top:22px;
-    padding-top:16px;
-    border-top:1px solid var(--line);
-    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-    font-size:.66rem;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:rgba(138,142,150,.85);
-  }
-
-  /* ---------- CONTACT ---------- */
-  .contact{
-    border-top:1px solid var(--line);
-    padding:clamp(70px,11vh,130px) 0;
-  }
-  .contact-inner{
-    display:flex;
-    align-items:flex-end;
-    justify-content:space-between;
-    gap:44px;
-    flex-wrap:wrap;
-  }
-  .contact h2{
-    font-size:clamp(2rem,5.4vw,3.4rem);
-    letter-spacing:-.035em;
-    line-height:1.05;
-  }
-  .contact h2 .serif{
-    font-family:"Instrument Serif",Georgia,serif;
-    font-style:italic;
-    font-weight:400;
-    color:var(--accent);
-  }
-  .contact .sub{
-    margin:18px 0 0;
-    color:var(--muted);
-    font-size:.95rem;
-    max-width:420px;
-  }
-  .mail{
-    display:inline-block;
-    font-size:clamp(1.05rem,2.4vw,1.55rem);
-    font-weight:500;
-    letter-spacing:-.02em;
-    padding-bottom:8px;
-    border-bottom:1px solid var(--line-strong);
-    transition:color .25s var(--ease), border-color .25s var(--ease);
-    word-break:break-word;
-  }
-  .mail:hover{color:var(--accent);border-color:var(--accent)}
-
-  /* ---------- FOOTER ---------- */
-  footer{
-    border-top:1px solid var(--line);
-    padding:30px 0 40px;
-  }
-  .foot-inner{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:16px 34px;
-    flex-wrap:wrap;
-    font-size:.8rem;
-    color:var(--muted);
-  }
-  .foot-inner .sep{opacity:.4;margin:0 8px}
-  .foot-inner .fine{
-    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-    font-size:.68rem;
-    letter-spacing:.1em;
-    text-transform:uppercase;
-    color:rgba(138,142,150,.62);
-  }
-
-  /* ---------- REVEAL ---------- */
-  .reveal{
-    opacity:0;
-    transform:translateY(20px);
-    transition:opacity .8s var(--ease), transform .8s var(--ease);
-  }
-  .reveal.in{opacity:1;transform:none}
-
-  @media (prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto}
-    .reveal{opacity:1;transform:none;transition:none}
-    .card,.btn,.link-arrow svg{transition:none}
-  }
-
-  @media (max-width:720px){
-    .wrap{padding:0 20px}
-    .nav-inner{height:64px}
-    .nav-links{display:none}
-    .hero-actions .btn{display:none}
-    .card{min-height:0;padding:26px 24px}
-    .card h3{margin-top:26px}
-    .section-head{flex-direction:column;align-items:flex-start;gap:14px}
-  }
-</style>
+    @media (max-width: 860px) {
+      .hero-grid, .contact-grid, .process ol { grid-template-columns: 1fr; }
+      .mark-stage { justify-self: start; width: min(100%, 280px); }
+      .nav-links { display: none; }
+      .companies a { grid-template-columns: 40px 1fr; }
+      .companies .meta { grid-column: 2; }
+      .mail { justify-self: start; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .mark-stage::before { animation: none; }
+    }
+  </style>
 </head>
 <body>
-
-  <!-- NAV -->
   <header class="nav">
     <div class="wrap nav-inner">
-      <a class="brand" href="#top" aria-label="Augmatic Holdings, home">
-        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
-          <rect x="1" y="1" width="24" height="24" rx="7.5" stroke="currentColor" stroke-opacity=".38"/>
-          <path d="M8.1 18.4 13 7.9l4.9 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M10.5 15.2h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        <span><b>Augmatic</b> <i>Holdings</i></span>
+      <a class="brand" href="#top" aria-label="Augmatic Holdings home">
+        <img src="logo.svg" width="42" height="42" alt="" />
+        <span class="brand-text">
+          <span class="brand-name">Augmatic <em>Holdings</em></span>
+          <span class="brand-slogan">Base metal to gold</span>
+        </span>
       </a>
-
       <nav class="nav-links" aria-label="Primary">
         <a href="#companies">Companies</a>
         <a href="#contact">Contact</a>
       </nav>
-
-      <a class="btn" href="mailto:purchasing@augmaticholdings.com">
-        <span class="dot" aria-hidden="true"></span>
-        Get in touch
-      </a>
+      <a class="btn" href="mailto:purchasing@augmaticholdings.com"><span class="dot" aria-hidden="true"></span>Get in touch</a>
     </div>
   </header>
 
   <main id="top">
-
-    <!-- HERO -->
     <section class="hero">
-      <div class="wrap">
-        <p class="eyebrow reveal">New York · Suffolk County</p>
-
-        <h1 class="reveal">
-          Technology holdings.
-          <span class="serif">Built to operate.</span>
-        </h1>
-
-        <p class="lede reveal">
-          <strong>Augmatic Holdings LLC</strong> is a New York company for software, hardware,
-          and consulting businesses — including private home systems and tools for MSPs.
-        </p>
-
-        <div class="hero-actions reveal">
-          <a class="btn" href="mailto:purchasing@augmaticholdings.com">
-            <span class="dot" aria-hidden="true"></span>
-            purchasing@augmaticholdings.com
-          </a>
-          <a class="link-arrow" href="#companies">
-            View companies
-            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M2.5 8h11M9.5 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
+      <div class="wrap hero-grid">
+        <div>
+          <p class="kicker">Boutique technology holdings · New York</p>
+          <h1>Technology holdings.<span class="gold">Base metal to gold.</span></h1>
+          <p class="lede">
+            <strong>Augmatic Holdings LLC</strong> acquires, builds, and elevates software,
+            hardware, and consulting businesses — turning raw capability into durable operating companies.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="mailto:purchasing@augmaticholdings.com"><span class="dot" aria-hidden="true"></span>purchasing@augmaticholdings.com</a>
+            <a class="link-quiet" href="#companies">View the portfolio →</a>
+          </div>
+        </div>
+        <div class="mark-stage" aria-hidden="true">
+          <img src="logo.svg" alt="" />
+          <p class="mark-caption">Augment · Automate · Ascend</p>
         </div>
       </div>
     </section>
 
-    <!-- COMPANIES -->
+    <div class="process">
+      <div class="wrap">
+        <ol>
+          <li><b>01</b> <span>Augment</span> — find the leverage in a system</li>
+          <li><b>02</b> <span>Automate</span> — install the operating rhythm</li>
+          <li><b>03</b> <span>Ascend</span> — compound until it holds gold</li>
+        </ol>
+      </div>
+    </div>
+
     <section class="section" id="companies">
       <div class="wrap">
-        <div class="section-head reveal">
-          <h2>Companies</h2>
-          <p class="note">Three operating businesses, held and run under one roof.</p>
+        <div class="section-head">
+          <h2>Portfolio companies</h2>
+          <p>Operating businesses held under Augmatic — each built to run, not just to exist.</p>
         </div>
-
-        <div class="grid">
-          <article class="card reveal">
-            <span class="num">01</span>
-            <h3>Private Home Systems</h3>
-            <p>A private-home platform that keeps your data off the big public clouds.</p>
-            <span class="tag">Hardware · Software</span>
-          </article>
-
-          <article class="card reveal">
-            <span class="num">02</span>
-            <h3>MSP Operations</h3>
-            <p>Endpoint and identity health monitoring, purpose-built for managed service providers.</p>
-            <span class="tag">Software · Cloud</span>
-          </article>
-
-          <article class="card reveal">
-            <span class="num">03</span>
-            <h3>Cloud Marketplace</h3>
-            <p>A marketplace of cloud agents built for the way managed service providers work.</p>
-            <span class="tag">Platform · Marketplace</span>
-          </article>
-        </div>
+        <ul class="companies">
+          <li>
+            <a href="https://getsolabox.com" rel="noopener">
+              <span class="n">01</span>
+              <span>
+                <span class="name">Solabox</span>
+                <span class="blurb">Private home systems — family data kept off the big public clouds.</span>
+              </span>
+              <span class="meta">Hardware · Software</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://getglowop.com" rel="noopener">
+              <span class="n">02</span>
+              <span>
+                <span class="name">GlowOps</span>
+                <span class="blurb">Endpoint and identity health for managed service providers.</span>
+              </span>
+              <span class="meta">Software · Cloud</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://cresculus.com" rel="noopener">
+              <span class="n">03</span>
+              <span>
+                <span class="name">Cresculus</span>
+                <span class="blurb">Azure agent marketplace built for the way MSPs actually work.</span>
+              </span>
+              <span class="meta">Platform · Marketplace</span>
+            </a>
+          </li>
+        </ul>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section class="contact" id="contact">
-      <div class="wrap contact-inner">
-        <div class="reveal">
-          <h2>Let's <span class="serif">talk.</span></h2>
-          <p class="sub">For partnerships, acquisitions, and general inquiries.</p>
+      <div class="wrap contact-grid">
+        <div>
+          <h2>Partnerships, acquisitions, <em>and operations.</em></h2>
+          <p class="sub">Write purchasing for introductions, vendor relationships, and company matters.</p>
         </div>
-        <a class="mail reveal" href="mailto:purchasing@augmaticholdings.com">purchasing@augmaticholdings.com</a>
+        <a class="mail" href="mailto:purchasing@augmaticholdings.com">purchasing@augmaticholdings.com</a>
       </div>
     </section>
-
   </main>
 
-  <!-- FOOTER -->
   <footer>
-    <div class="wrap foot-inner">
-      <div>© 2026 Augmatic Holdings LLC<span class="sep">·</span>Suffolk County, NY</div>
-      <div class="fine">Disregarded single-member LLC</div>
+    <div class="wrap" style="display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;width:min(1080px,calc(100% - 48px));margin:0 auto;">
+      <span>© 2026 Augmatic Holdings LLC · Suffolk County, NY</span>
+      <span class="slogan">Base metal to gold</span>
     </div>
   </footer>
-
-  <script>
-    (function () {
-      var els = document.querySelectorAll('.reveal');
-      if (!('IntersectionObserver' in window)) {
-        els.forEach(function (el) { el.classList.add('in'); });
-        return;
-      }
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry, i) {
-          if (!entry.isIntersecting) return;
-          var el = entry.target;
-          setTimeout(function () { el.classList.add('in'); }, i * 70);
-          io.unobserve(el);
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-      els.forEach(function (el) { io.observe(el); });
-    })();
-  </script>
-
 </body>
 </html>
