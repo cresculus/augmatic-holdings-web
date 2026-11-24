@@ -1,0 +1,12 @@
+{
+  "name": "augmatic-holdings-web",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Public site for Augmatic Holdings LLC",
+  "scripts": {
+    "start": "npx --yes serve -s . -l tcp://0.0.0.0:${PORT:-3000}"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

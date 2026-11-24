@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Augmatic Holdings</title>
+  <meta name="description" content="Augmatic Holdings LLC — technology holding company for software, hardware, and consulting businesses." />
+  <link rel="canonical" href="https://augmaticholdings.com/" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,650;1,9..144,500&family=Sora:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg0: #0c1110;
+      --bg1: #141a18;
+      --ink: #eef3ef;
+      --muted: #9aa89e;
+      --line: #24302a;
+      --accent: #6fb58a;
+      --accent-dim: #2d5a44;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      font-family: "Sora", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 700px at 12% -10%, #1a2e24 0%, transparent 55%),
+        radial-gradient(900px 600px at 90% 10%, #1c2420 0%, transparent 50%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 45%, #0a0e0c);
+      line-height: 1.45;
+    }
+    .wrap {
+      width: min(920px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 0 0;
+    }
+    .brand {
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 650;
+      font-size: 1.15rem;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .brand span { color: var(--accent); }
+    .mail {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .mail:hover { color: var(--ink); }
+    .hero {
+      min-height: calc(100vh - 120px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 48px 0 64px;
+    }
+    .hero h1 {
+      margin: 0;
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 650;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      max-width: 14ch;
+    }
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 500;
+      color: var(--accent);
+    }
+    .lede {
+      margin: 18px 0 0;
+      max-width: 36rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #06140c;
+    }
+    .btn-ghost {
+      border: 1px solid var(--line);
+      color: var(--ink);
+    }
+    .btn-ghost:hover { border-color: var(--accent-dim); }
+    .products {
+      padding: 8px 0 80px;
+      border-top: 1px solid var(--line);
+    }
+    .products h2 {
+      margin: 28px 0 8px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .list li {
+      border-bottom: 1px solid var(--line);
+    }
+    .list a {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 0;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .list a:hover .name { color: var(--accent); }
+    .name {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+    }
+    .desc { color: var(--muted); font-size: 0.92rem; text-align: right; }
+    footer {
+      padding: 24px 0 40px;
+      color: var(--muted);
+      font-size: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      justify-content: space-between;
+      border-top: 1px solid var(--line);
+    }
+    @media (max-width: 640px) {
+      .list a { flex-direction: column; gap: 4px; }
+      .desc { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="/">Augmatic <span>Holdings</span></a>
+      <a class="mail" href="mailto:brandon@augmaticholdings.com">brandon@augmaticholdings.com</a>
+    </header>
+
+    <main class="hero">
+      <h1>Technology holdings. <em>Built to operate.</em></h1>
+      <p class="lede">
+        Augmatic Holdings LLC is a New York company for software, hardware, and consulting businesses —
+        including private home systems and tools for MSPs.
+      </p>
+      <div class="cta">
+        <a class="btn btn-primary" href="mailto:brandon@augmaticholdings.com">Contact</a>
+        <a class="btn btn-ghost" href="#companies">Companies</a>
+      </div>
+    </main>
+
+    <section class="products" id="companies">
+      <h2>Companies</h2>
+      <ul class="list">
+        <li>
+          <a href="https://getsolabox.com" rel="noopener">
+            <span class="name">Solabox</span>
+            <span class="desc">Private home system off big cloud</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://getglowop.com" rel="noopener">
+            <span class="name">GlowOps</span>
+            <span class="desc">Intune + Graph health for MSPs</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://cresculus.com" rel="noopener">
+            <span class="name">Cresculus</span>
+            <span class="desc">Azure agent marketplace for MSPs</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <span>© <span id="y"></span> Augmatic Holdings LLC · Suffolk County, NY</span>
+      <span>Disregarded single-member LLC</span>
+    </footer>
+  </div>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
