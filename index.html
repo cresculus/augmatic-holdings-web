@@ -291,26 +291,40 @@
   .ghost-link:hover{color:var(--ink)}
   .ghost-link:hover svg{transform:translateY(3px)}
 
-  /* soft paper vignette around the dark plate */
+  /* outside-only soft fade into paper (interior stays sharp) */
   .hero-plate{
     position:relative;
     isolation:isolate;
   }
+  /* blurred twin behind the plate — softens the silhouette outward */
   .hero-plate::before{
     content:"";
     position:absolute;
-    inset:-48px;
+    inset:-2px;
     z-index:0;
     pointer-events:none;
-    background:
-      radial-gradient(ellipse 68% 62% at 50% 50%,
-        rgba(201,161,91,.22) 0%,
-        rgba(201,161,91,.08) 40%,
-        transparent 70%);
-    filter:blur(8px);
+    border-radius:6px;
+    background:linear-gradient(165deg, #2C2418 0%, #18140F 36%, #0B0A08 68%, #16120E 100%);
+    filter:blur(28px);
+    opacity:.9;
+    transform:scale(1.04);
+  }
+  /* paper glow ring outside the hard edge */
+  .hero-plate::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+    border-radius:4px;
+    box-shadow:
+      0 0 18px 10px rgba(242,237,227,.95),
+      0 0 36px 22px rgba(242,237,227,.75),
+      0 0 64px 40px rgba(242,237,227,.45),
+      0 0 100px 58px rgba(242,237,227,.22);
   }
 
-  /* hero standard — feathered edges into paper */
+  /* hero standard — crisp inside, no border */
   .hero-standard{
     --mx: 72%;
     --my: 28%;
@@ -323,15 +337,14 @@
       linear-gradient(115deg, rgba(201,161,91,.26) 0%, transparent 46%),
       linear-gradient(165deg, #2C2418 0%, #18140F 36%, #0B0A08 68%, #16120E 100%);
     border:none;
+    outline:none;
     border-radius:4px;
-    padding:clamp(40px,5.2vw,56px) clamp(32px,4vw,48px);
+    padding:clamp(36px,5vw,52px) clamp(28px,3.8vw,44px);
     min-height:320px;
     display:flex;
     flex-direction:column;
     justify-content:flex-end;
     color:var(--paper-2);
-    -webkit-mask-image:radial-gradient(ellipse 94% 90% at 50% 50%, #000 42%, rgba(0,0,0,.92) 62%, rgba(0,0,0,.45) 80%, transparent 100%);
-    mask-image:radial-gradient(ellipse 94% 90% at 50% 50%, #000 42%, rgba(0,0,0,.92) 62%, rgba(0,0,0,.45) 80%, transparent 100%);
   }
   .hero-standard::before{
     content:"";
@@ -340,21 +353,8 @@
     pointer-events:none;
     z-index:0;
     background:
-      linear-gradient(180deg, rgba(242,237,227,.12), transparent 30%),
-      linear-gradient(90deg, rgba(201,161,91,.18), transparent 38%);
-  }
-  /* paper blur wash on the rim — gradual white flow */
-  .hero-standard::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    pointer-events:none;
-    z-index:3;
-    border-radius:inherit;
-    box-shadow:
-      inset 0 0 28px 16px rgba(242,237,227,.55),
-      inset 0 0 56px 34px rgba(242,237,227,.28),
-      inset 0 0 90px 52px rgba(242,237,227,.12);
+      linear-gradient(180deg, rgba(243,223,172,.1), transparent 32%),
+      linear-gradient(90deg, rgba(201,161,91,.16), transparent 40%);
   }
   .hero-orbit{
     position:absolute;
@@ -673,7 +673,6 @@
     .hero-grid{grid-template-columns:minmax(0,1fr);gap:44px}
     .hero-plate{max-width:520px;width:100%}
     .hero-standard{width:100%;min-height:260px}
-    .hero-plate::before{inset:-36px}
     .contact-grid{grid-template-columns:minmax(0,1fr);gap:18px}
   }
 
