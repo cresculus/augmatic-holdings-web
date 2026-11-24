@@ -324,7 +324,7 @@
       0 0 100px 58px rgba(242,237,227,.22);
   }
 
-  /* hero standard — crisp inside, no border */
+  /* hero standard — crisp inside, interactive field */
   .hero-standard{
     --mx: 72%;
     --my: 28%;
@@ -332,6 +332,7 @@
     z-index:1;
     isolation:isolate;
     overflow:hidden;
+    cursor:crosshair;
     background:
       radial-gradient(460px 340px at var(--mx) var(--my), rgba(243,223,172,.38), rgba(201,161,91,.14) 40%, transparent 70%),
       linear-gradient(115deg, rgba(201,161,91,.26) 0%, transparent 46%),
@@ -356,6 +357,19 @@
       linear-gradient(180deg, rgba(243,223,172,.1), transparent 32%),
       linear-gradient(90deg, rgba(201,161,91,.16), transparent 40%);
   }
+  .hero-cursor{
+    position:absolute;
+    width:140px;height:140px;
+    margin:-70px 0 0 -70px;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:1;
+    opacity:0;
+    background:radial-gradient(circle, rgba(243,223,172,.28) 0%, rgba(201,161,91,.1) 40%, transparent 70%);
+    transition:opacity .25s var(--ease);
+    will-change:transform,left,top;
+  }
+  .hero-standard.is-hot .hero-cursor{opacity:1}
   .hero-orbit{
     position:absolute;
     inset:0;
@@ -375,38 +389,44 @@
   .hero-particles{
     position:absolute;
     inset:0;
-    pointer-events:none;
-    z-index:1;
+    z-index:2;
     overflow:visible;
+    pointer-events:none;
   }
   .hero-particles i{
     position:absolute;
     display:block;
     border-radius:50%;
     background:radial-gradient(circle at 35% 35%, #F3DFAC, #C9A15B 50%, transparent 72%);
-    box-shadow:0 0 16px rgba(201,161,91,.45);
-    will-change:transform;
+    box-shadow:0 0 18px rgba(201,161,91,.55);
+    will-change:transform,left,top;
+    pointer-events:auto;
+    cursor:pointer;
+    touch-action:none;
   }
-  .hero-particles i:nth-child(1){width:10px;height:10px;left:14%;top:22%}
-  .hero-particles i:nth-child(2){width:6px;height:6px;left:28%;top:48%}
-  .hero-particles i:nth-child(3){width:14px;height:14px;left:62%;top:18%;box-shadow:0 0 26px rgba(201,161,91,.6)}
-  .hero-particles i:nth-child(4){width:5px;height:5px;left:78%;top:36%}
-  .hero-particles i:nth-child(5){width:8px;height:8px;left:46%;top:62%}
-  .hero-particles i:nth-child(6){width:4px;height:4px;left:18%;top:72%}
-  .hero-particles i:nth-child(7){width:7px;height:7px;left:86%;top:58%}
-  .hero-particles i:nth-child(8){width:5px;height:5px;left:54%;top:32%}
-  .hero-particles i:nth-child(9){width:9px;height:9px;left:34%;top:28%}
-  .hero-particles i:nth-child(10){width:4px;height:4px;left:70%;top:74%}
+  .hero-particles i:nth-child(1){width:12px;height:12px;left:14%;top:22%}
+  .hero-particles i:nth-child(2){width:8px;height:8px;left:28%;top:48%}
+  .hero-particles i:nth-child(3){width:16px;height:16px;left:62%;top:18%;box-shadow:0 0 28px rgba(201,161,91,.7)}
+  .hero-particles i:nth-child(4){width:7px;height:7px;left:78%;top:36%}
+  .hero-particles i:nth-child(5){width:10px;height:10px;left:46%;top:62%}
+  .hero-particles i:nth-child(6){width:6px;height:6px;left:18%;top:72%}
+  .hero-particles i:nth-child(7){width:9px;height:9px;left:86%;top:58%}
+  .hero-particles i:nth-child(8){width:7px;height:7px;left:54%;top:32%}
+  .hero-particles i:nth-child(9){width:11px;height:11px;left:34%;top:28%}
+  .hero-particles i:nth-child(10){width:6px;height:6px;left:70%;top:74%}
+  .hero-particles i:nth-child(11){width:8px;height:8px;left:88%;top:24%}
+  .hero-particles i:nth-child(12){width:5px;height:5px;left:8%;top:56%}
   .hero-standard .label{
     position:relative;
-    z-index:2;
+    z-index:3;
     display:block;
     margin-bottom:18px;
     color:rgba(244,239,228,.48);
+    pointer-events:none;
   }
   .hero-standard-line{
     position:relative;
-    z-index:2;
+    z-index:3;
     margin:0;
     max-width:13ch;
     font-family:var(--serif);
@@ -416,6 +436,7 @@
     letter-spacing:-.02em;
     text-wrap:balance;
     color:var(--paper-2);
+    pointer-events:none;
   }
   .hero-standard-line em{font-style:italic;font-weight:400}
 
@@ -550,8 +571,11 @@
     position:absolute;
     border-radius:50%;
     background:radial-gradient(circle at 35% 35%, #F3DFAC, #C9A15B 48%, transparent 72%);
-    opacity:.8;
-    will-change:transform;
+    opacity:.85;
+    will-change:transform,left,top;
+    pointer-events:auto;
+    cursor:pointer;
+    touch-action:none;
   }
   .ink-particles span:nth-child(1){width:7px;height:7px;left:8%;top:22%}
   .ink-particles span:nth-child(2){width:4px;height:4px;left:22%;top:58%}
@@ -790,14 +814,25 @@
           </div>
         </div>
 
-        <div class="hero-plate reveal">
+        <div class="hero-plate reveal in">
           <aside class="hero-standard" aria-label="Augmatic standard" data-tilt>
+            <div class="hero-cursor" aria-hidden="true"></div>
             <div class="hero-orbit" aria-hidden="true">
               <span></span>
             </div>
-            <div class="hero-particles" aria-hidden="true">
-              <i></i><i></i><i></i><i></i><i></i>
-              <i></i><i></i><i></i><i></i><i></i>
+            <div class="hero-particles">
+              <i data-x="14" data-y="22"></i>
+              <i data-x="28" data-y="48"></i>
+              <i data-x="62" data-y="18"></i>
+              <i data-x="78" data-y="36"></i>
+              <i data-x="46" data-y="62"></i>
+              <i data-x="18" data-y="72"></i>
+              <i data-x="86" data-y="58"></i>
+              <i data-x="54" data-y="32"></i>
+              <i data-x="34" data-y="28"></i>
+              <i data-x="70" data-y="74"></i>
+              <i data-x="88" data-y="24"></i>
+              <i data-x="8" data-y="56"></i>
             </div>
             <p class="label">The Augmatic standard</p>
             <p class="hero-standard-line">
@@ -811,10 +846,19 @@
   </main>
 
   <div class="ink-band">
-    <div class="ink-particles" aria-hidden="true">
-      <span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span>
+    <div class="ink-particles">
+      <span data-x="8" data-y="22"></span>
+      <span data-x="22" data-y="58"></span>
+      <span data-x="48" data-y="18"></span>
+      <span data-x="68" data-y="42"></span>
+      <span data-x="82" data-y="28"></span>
+      <span data-x="88" data-y="62"></span>
+      <span data-x="36" data-y="72"></span>
+      <span data-x="14" data-y="78"></span>
+      <span data-x="58" data-y="84"></span>
+      <span data-x="74" data-y="12"></span>
+      <span data-x="40" data-y="38"></span>
+      <span data-x="92" data-y="78"></span>
     </div>
 
     <!-- ===== CONTACT ===== -->
@@ -866,49 +910,144 @@
         els.forEach(function (el) { io.observe(el); });
       }
 
-      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (reduce || !window.requestAnimationFrame) return;
+      if (!window.requestAnimationFrame) return;
 
       var plate = document.querySelector('[data-tilt]');
       var band = document.querySelector('.ink-band');
-      var plateParts = plate ? Array.prototype.slice.call(plate.querySelectorAll('.hero-particles i')) : [];
-      var bandParts = band ? Array.prototype.slice.call(band.querySelectorAll('.ink-particles span')) : [];
-      var target = { x: 0.5, y: 0.5 };
-      var cur = { x: 0.5, y: 0.5 };
+      if (!plate && !band) return;
 
-      window.addEventListener('pointermove', function (e) {
-        var el = plate || band;
-        if (!el) return;
-        var r = el.getBoundingClientRect();
-        if (!r.width || !r.height) return;
-        target.x = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
-        target.y = Math.min(1, Math.max(0, (e.clientY - r.top) / r.height));
-      }, { passive: true });
+      var cursor = plate ? plate.querySelector('.hero-cursor') : null;
+      var plateNodes = plate ? Array.prototype.slice.call(plate.querySelectorAll('.hero-particles i')) : [];
+      var bandNodes = band ? Array.prototype.slice.call(band.querySelectorAll('.ink-particles span')) : [];
+      var mouse = { x: 0, y: 0, onPlate: false, onBand: false };
+      var glow = { x: 0.72, y: 0.28 };
 
-      function tick() {
-        cur.x += (target.x - cur.x) * 0.12;
-        cur.y += (target.y - cur.y) * 0.12;
-        var mx = (cur.x * 100).toFixed(2) + '%';
-        var my = (cur.y * 100).toFixed(2) + '%';
-        var dx = (cur.x - 0.5) * 2;
-        var dy = (cur.y - 0.5) * 2;
+      function makeDots(nodes, host) {
+        return nodes.map(function (el, i) {
+          return {
+            el: el,
+            host: host,
+            leftPct: parseFloat(el.getAttribute('data-x')) || 50,
+            topPct: parseFloat(el.getAttribute('data-y')) || 50,
+            x: 0,
+            y: 0,
+            vx: 0,
+            vy: 0,
+            mass: 0.55 + (i % 5) * 0.12,
+            grab: false,
+            ready: false
+          };
+        });
+      }
 
+      var dots = makeDots(plateNodes, plate).concat(makeDots(bandNodes, band));
+
+      function syncHomes() {
+        dots.forEach(function (d) {
+          if (!d.host) return;
+          var r = d.host.getBoundingClientRect();
+          d.homeX = (d.leftPct / 100) * r.width;
+          d.homeY = (d.topPct / 100) * r.height;
+          if (!d.ready) {
+            d.x = d.homeX;
+            d.y = d.homeY;
+            d.ready = true;
+          }
+        });
+      }
+      syncHomes();
+      window.addEventListener('resize', syncHomes);
+
+      function track(e) {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
         if (plate) {
-          plate.style.setProperty('--mx', mx);
-          plate.style.setProperty('--my', my);
-          plateParts.forEach(function (p, i) {
-            var depth = 28 + (i % 5) * 18;
-            p.style.transform = 'translate3d(' + (dx * depth).toFixed(1) + 'px,' + (dy * depth).toFixed(1) + 'px,0)';
-          });
+          var pr = plate.getBoundingClientRect();
+          mouse.onPlate = e.clientX >= pr.left && e.clientX <= pr.right && e.clientY >= pr.top && e.clientY <= pr.bottom;
+          if (mouse.onPlate) {
+            glow.x = (e.clientX - pr.left) / pr.width;
+            glow.y = (e.clientY - pr.top) / pr.height;
+            plate.classList.add('is-hot');
+            if (cursor) {
+              cursor.style.left = (e.clientX - pr.left) + 'px';
+              cursor.style.top = (e.clientY - pr.top) + 'px';
+            }
+          } else {
+            plate.classList.remove('is-hot');
+          }
         }
         if (band) {
-          band.style.setProperty('--mx', mx);
-          band.style.setProperty('--my', my);
-          bandParts.forEach(function (p, i) {
-            var depth = 22 + (i % 4) * 14;
-            p.style.transform = 'translate3d(' + (dx * depth).toFixed(1) + 'px,' + (dy * depth).toFixed(1) + 'px,0)';
-          });
+          var br = band.getBoundingClientRect();
+          mouse.onBand = e.clientX >= br.left && e.clientX <= br.right && e.clientY >= br.top && e.clientY <= br.bottom;
         }
+      }
+
+      window.addEventListener('pointermove', track, { passive: true });
+      if (plate) {
+        plate.addEventListener('pointerenter', function () { plate.classList.add('is-hot'); });
+        plate.addEventListener('pointerleave', function () { plate.classList.remove('is-hot'); });
+      }
+
+      dots.forEach(function (d) {
+        d.el.addEventListener('pointerdown', function (e) {
+          e.preventDefault();
+          d.grab = true;
+          d.el.setPointerCapture(e.pointerId);
+        });
+        d.el.addEventListener('pointerup', function () { d.grab = false; });
+        d.el.addEventListener('pointercancel', function () { d.grab = false; });
+      });
+
+      function tick() {
+        if (plate) {
+          plate.style.setProperty('--mx', (glow.x * 100).toFixed(2) + '%');
+          plate.style.setProperty('--my', (glow.y * 100).toFixed(2) + '%');
+        }
+        if (band && mouse.onBand) {
+          var br = band.getBoundingClientRect();
+          band.style.setProperty('--mx', (((mouse.x - br.left) / br.width) * 100).toFixed(2) + '%');
+          band.style.setProperty('--my', (((mouse.y - br.top) / br.height) * 100).toFixed(2) + '%');
+        }
+
+        dots.forEach(function (d) {
+          if (!d.host || !d.ready) return;
+          var r = d.host.getBoundingClientRect();
+          var mx = mouse.x - r.left;
+          var my = mouse.y - r.top;
+          var inside = (d.host === plate && mouse.onPlate) || (d.host === band && mouse.onBand);
+
+          if (d.grab) {
+            d.x = mx;
+            d.y = my;
+            d.vx = 0;
+            d.vy = 0;
+          } else {
+            var ax = (d.homeX - d.x) * 0.045;
+            var ay = (d.homeY - d.y) * 0.045;
+
+            if (inside) {
+              var dx = mx - d.x;
+              var dy = my - d.y;
+              var dist = Math.sqrt(dx * dx + dy * dy) || 1;
+              var radius = 160;
+              if (dist < radius) {
+                var pull = (1 - dist / radius) * 2.4 * d.mass;
+                ax += (dx / dist) * pull;
+                ay += (dy / dist) * pull;
+              }
+            }
+
+            d.vx = (d.vx + ax) * 0.86;
+            d.vy = (d.vy + ay) * 0.86;
+            d.x += d.vx;
+            d.y += d.vy;
+          }
+
+          d.el.style.left = d.x + 'px';
+          d.el.style.top = d.y + 'px';
+          d.el.style.transform = 'translate(-50%, -50%)';
+        });
+
         requestAnimationFrame(tick);
       }
       requestAnimationFrame(tick);
