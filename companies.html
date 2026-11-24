@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Companies — Augmatic Holdings</title>
-<meta name="description" content="Businesses under Augmatic Holdings LLC — Private AI Systems, MSP Device Lifecycle, Cloud Agent Marketplace, and Super Pars." />
+<meta name="description" content="Augmatic Holdings portfolio categories — private AI hardware, MSP SaaS, cloud agents, apparel, and mobile applications." />
 <meta name="theme-color" content="#F4EFE4" />
 <link rel="canonical" href="https://augmaticholdings.com/companies.html" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23191510'/%3E%3Cpath d='M32 13 51 51H41.5L32 30 22.5 51H13Z' fill='%23C9A15B'/%3E%3C/svg%3E" />
@@ -106,10 +106,6 @@
   }
 
   .page-intro{
-    display:grid;
-    grid-template-columns:minmax(0,1fr) minmax(0,.72fr);
-    gap:clamp(24px,4vw,64px);
-    align-items:end;
     margin-bottom:clamp(40px,6vh,64px);
     padding-bottom:clamp(28px,4vh,40px);
     border-bottom:1px solid var(--line);
@@ -134,18 +130,6 @@
     letter-spacing:-.04em;
     line-height:1.02;
   }
-  .page-intro .lede{
-    margin:0;
-    max-width:34ch;
-    font-size:clamp(.98rem,1.2vw,1.08rem);
-    line-height:1.7;
-    color:var(--muted);
-  }
-  .page-intro .lede em{
-    font-style:italic;
-    font-weight:600;
-    color:var(--gold-deep);
-  }
 
   .ledger{
     display:flex;
@@ -156,10 +140,10 @@
   .company{
     position:relative;
     display:grid;
-    grid-template-columns:72px minmax(0,1fr) auto;
+    grid-template-columns:72px minmax(0,1fr);
     gap:clamp(18px,3vw,40px);
     align-items:center;
-    padding:clamp(26px,3.4vh,36px) clamp(20px,2.6vw,32px);
+    padding:clamp(24px,3.2vh,34px) clamp(20px,2.6vw,32px);
     background:
       linear-gradient(135deg, rgba(255,252,245,.72), rgba(250,246,238,.35));
     border:1px solid var(--line-soft);
@@ -196,42 +180,11 @@
     color:var(--gold);
   }
   .company h2{
-    margin:0 0 8px;
+    margin:0;
     font-weight:700;
     font-size:clamp(1.35rem,2.3vw,1.85rem);
     letter-spacing:-.03em;
     line-height:1.12;
-  }
-  .company p{
-    margin:0;
-    max-width:52ch;
-    font-size:.96rem;
-    line-height:1.65;
-    color:var(--muted);
-  }
-  .company .meta{
-    display:flex;
-    flex-direction:column;
-    align-items:flex-end;
-    gap:10px;
-  }
-  .company .tag{
-    font-family:var(--mono);
-    font-size:.6rem;
-    letter-spacing:.16em;
-    text-transform:uppercase;
-    color:var(--muted);
-    white-space:nowrap;
-    padding:9px 14px;
-    border:1px solid var(--line);
-    border-radius:999px;
-    background:rgba(255,255,255,.35);
-    transition:border-color .3s var(--ease), color .3s var(--ease), background .3s var(--ease);
-  }
-  .company:hover .tag{
-    border-color:rgba(168,127,61,.45);
-    color:var(--gold-deep);
-    background:rgba(168,127,61,.08);
   }
 
   .page-cta{
@@ -293,25 +246,12 @@
     .company:hover{transform:none}
   }
 
-  @media (max-width:900px){
-    .page-intro{grid-template-columns:1fr;gap:18px}
-    .company{
-      grid-template-columns:56px minmax(0,1fr);
-      align-items:start;
-    }
-    .company .meta{
-      grid-column:2;
-      align-items:flex-start;
-      margin-top:4px;
-    }
-  }
-
   @media (max-width:760px){
     .nav-inner{height:68px}
     .nav-links{display:none}
     .brand-mark{width:30px;height:30px}
     .brand-name{font-size:1.12rem}
-    .company{padding:22px 18px;gap:14px}
+    .company{grid-template-columns:56px minmax(0,1fr);padding:22px 18px;gap:14px}
   }
 </style>
 </head>
@@ -371,54 +311,41 @@
             <p class="eyebrow label">Portfolio</p>
             <h1>Companies</h1>
           </div>
-          <p class="lede">
-            Four operating lines under one roof —
-            <em>software, hardware, and consulting.</em>
-          </p>
         </div>
 
         <div class="ledger">
           <article class="company reveal">
             <span class="idx">01</span>
             <div>
-              <h2>Private AI Systems</h2>
-              <p>A private system that keeps your data off big public clouds.</p>
-            </div>
-            <div class="meta">
-              <span class="tag">Hardware · Software</span>
+              <h2>Private AI Hardware</h2>
             </div>
           </article>
 
           <article class="company reveal">
             <span class="idx">02</span>
             <div>
-              <h2>MSP Device Lifecycle</h2>
-              <p>Programming, services, and consulting.</p>
-            </div>
-            <div class="meta">
-              <span class="tag">Services · Consulting</span>
+              <h2>MSP SaaS Products</h2>
             </div>
           </article>
 
           <article class="company reveal">
             <span class="idx">03</span>
             <div>
-              <h2>Cloud Agent Marketplace</h2>
-              <p>Cloud agents for Azure and beyond.</p>
-            </div>
-            <div class="meta">
-              <span class="tag">Platform · Marketplace</span>
+              <h2>Cloud Agents</h2>
             </div>
           </article>
 
           <article class="company reveal">
             <span class="idx">04</span>
             <div>
-              <h2>Super Pars</h2>
-              <p>An AI swing app for golf — with apparel alongside.</p>
+              <h2>Apparel</h2>
             </div>
-            <div class="meta">
-              <span class="tag">AI · Apparel</span>
+          </article>
+
+          <article class="company reveal">
+            <span class="idx">05</span>
+            <div>
+              <h2>Mobile Applications</h2>
             </div>
           </article>
         </div>
