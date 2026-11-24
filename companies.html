@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Companies — Augmatic Holdings</title>
-<meta name="description" content="Operating businesses held under Augmatic Holdings LLC — Private AI Systems, MSP Device Lifecycle, Cloud Agent Marketplace, and Super Pars." />
+<meta name="description" content="Businesses under Augmatic Holdings LLC — Private AI Systems, MSP Device Lifecycle, Cloud Agent Marketplace, and Super Pars." />
 <meta name="theme-color" content="#F4EFE4" />
 <link rel="canonical" href="https://augmaticholdings.com/companies.html" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23191510'/%3E%3Cpath d='M32 13 51 51H41.5L32 30 22.5 51H13Z' fill='%23C9A15B'/%3E%3C/svg%3E" />
@@ -22,7 +22,6 @@
     --gold:#A87F3D;
     --gold-deep:#7E5A24;
     --gold-light:#E4C892;
-    --serif:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
     --sans:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
     --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
     --max:1180px;
@@ -30,9 +29,13 @@
   }
 
   *,*::before,*::after{box-sizing:border-box}
-  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;height:100%}
   body{
     margin:0;
+    min-height:100%;
+    min-height:100dvh;
+    display:flex;
+    flex-direction:column;
     background:
       radial-gradient(1100px 560px at 82% -12%, #FCF8EC 0%, rgba(252,248,236,0) 60%),
       radial-gradient(900px 520px at -8% 6%, #F8F2E4 0%, rgba(248,242,228,0) 58%),
@@ -59,7 +62,13 @@
   :focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:2px}
 
   .wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 clamp(20px,4vw,44px)}
-  .label{font-family:var(--mono);font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+  .label{
+    font-family:var(--mono);
+    font-size:.66rem;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
 
   .nav{
     position:sticky;top:0;z-index:60;
@@ -72,15 +81,15 @@
   .brand{display:flex;align-items:center;gap:13px}
   .brand-mark{width:34px;height:34px;color:var(--ink);flex:none;display:block}
   .brand-text{display:flex;flex-direction:column;line-height:1}
-  .brand-name{font-family:var(--serif);font-weight:700;font-size:1.42rem;letter-spacing:-.03em}
-  .brand-sub{font-family:var(--mono);font-size:.56rem;letter-spacing:.36em;text-transform:uppercase;color:var(--muted);margin-top:5px}
-  .nav-links{display:flex;align-items:center;gap:36px;font-size:.86rem;color:var(--muted)}
+  .brand-name{font-weight:700;font-size:1.42rem;letter-spacing:-.03em}
+  .brand-sub{font-family:var(--mono);font-size:.62rem;letter-spacing:.36em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+  .nav-links{display:flex;align-items:center;gap:36px;font-size:.95rem;color:var(--muted)}
   .nav-links a{position:relative;padding:4px 0;transition:color .25s var(--ease)}
   .nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--gold);transition:right .35s var(--ease)}
   .nav-links a:hover,.nav-links a.is-active{color:var(--ink)}
   .nav-links a:hover::after,.nav-links a.is-active::after{right:0}
   .nav-cta{
-    display:inline-flex;align-items:center;gap:10px;font-size:.82rem;font-weight:500;
+    display:inline-flex;align-items:center;gap:10px;font-size:.92rem;font-weight:500;
     color:var(--ink);padding-bottom:5px;border-bottom:1px solid var(--line);
     transition:border-color .25s var(--ease), color .25s var(--ease);white-space:nowrap;
   }
@@ -89,55 +98,189 @@
   .nav-cta:hover{border-color:var(--gold);color:var(--gold-deep)}
   .nav-cta:hover svg{transform:translate(2px,-2px)}
 
-  .section{padding:clamp(60px,9vh,100px) 0;scroll-margin-top:92px}
-  .section-head{
-    display:flex;align-items:flex-end;justify-content:space-between;
-    gap:24px 40px;flex-wrap:wrap;margin-bottom:clamp(26px,4vh,42px);
+  main{flex:1;display:flex;flex-direction:column}
+
+  .page{
+    flex:1;
+    padding:clamp(48px,8vh,88px) 0 clamp(56px,8vh,96px);
   }
-  .section-head h1{
-    margin:0;font-family:var(--serif);font-weight:700;
-    font-size:clamp(1.9rem,3.6vw,2.7rem);letter-spacing:-.035em;line-height:1.08;
+
+  .page-intro{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,.72fr);
+    gap:clamp(24px,4vw,64px);
+    align-items:end;
+    margin-bottom:clamp(40px,6vh,64px);
+    padding-bottom:clamp(28px,4vh,40px);
+    border-bottom:1px solid var(--line);
   }
-  .section-head .note{margin:0;max-width:34ch;font-size:.9rem;line-height:1.65;color:var(--muted)}
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin:0 0 18px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:7px;height:7px;
+    background:var(--gold);
+    transform:rotate(45deg);
+    flex:none;
+  }
+  .page-intro h1{
+    margin:0;
+    font-weight:700;
+    font-size:clamp(2.4rem,5vw,3.6rem);
+    letter-spacing:-.04em;
+    line-height:1.02;
+  }
+  .page-intro .lede{
+    margin:0;
+    max-width:34ch;
+    font-size:clamp(.98rem,1.2vw,1.08rem);
+    line-height:1.7;
+    color:var(--muted);
+  }
+  .page-intro .lede em{
+    font-style:italic;
+    font-weight:600;
+    color:var(--gold-deep);
+  }
+
+  .ledger{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
 
   .company{
-    display:grid;grid-template-columns:62px minmax(0,1fr) auto;
-    gap:clamp(16px,3vw,44px);align-items:center;
-    padding:clamp(24px,3.6vh,34px) 10px;border-top:1px solid var(--line);
-    transition:background .4s var(--ease), padding-left .4s var(--ease);
+    position:relative;
+    display:grid;
+    grid-template-columns:72px minmax(0,1fr) auto;
+    gap:clamp(18px,3vw,40px);
+    align-items:center;
+    padding:clamp(26px,3.4vh,36px) clamp(20px,2.6vw,32px);
+    background:
+      linear-gradient(135deg, rgba(255,252,245,.72), rgba(250,246,238,.35));
+    border:1px solid var(--line-soft);
+    border-radius:4px;
+    overflow:hidden;
+    transition:
+      border-color .35s var(--ease),
+      transform .35s var(--ease),
+      box-shadow .35s var(--ease);
   }
-  .company:last-of-type{border-bottom:1px solid var(--line)}
-  .company:hover{background:rgba(168,127,61,.065);padding-left:20px}
-  .company .idx{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;color:var(--muted);transition:color .3s var(--ease)}
-  .company:hover .idx{color:var(--gold)}
+  .company::before{
+    content:"";
+    position:absolute;
+    left:0;top:0;bottom:0;
+    width:3px;
+    background:linear-gradient(180deg, var(--gold-light), var(--gold-deep));
+    opacity:0;
+    transition:opacity .35s var(--ease);
+  }
+  .company:hover{
+    border-color:rgba(168,127,61,.35);
+    transform:translateY(-2px);
+    box-shadow:
+      0 18px 40px -28px rgba(20,17,14,.35),
+      0 0 0 1px rgba(168,127,61,.08);
+  }
+  .company:hover::before{opacity:1}
+
+  .company .idx{
+    font-family:var(--mono);
+    font-size:.78rem;
+    font-weight:500;
+    letter-spacing:.16em;
+    color:var(--gold);
+  }
   .company h2{
-    margin:0 0 7px;font-family:var(--serif);font-weight:600;
-    font-size:clamp(1.35rem,2.2vw,1.72rem);letter-spacing:-.025em;line-height:1.15;
+    margin:0 0 8px;
+    font-weight:700;
+    font-size:clamp(1.35rem,2.3vw,1.85rem);
+    letter-spacing:-.03em;
+    line-height:1.12;
   }
-  .company p{margin:0;max-width:58ch;font-size:.93rem;line-height:1.62;color:var(--muted)}
+  .company p{
+    margin:0;
+    max-width:52ch;
+    font-size:.96rem;
+    line-height:1.65;
+    color:var(--muted);
+  }
+  .company .meta{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:10px;
+  }
   .company .tag{
-    font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--muted);white-space:nowrap;padding:8px 13px;border:1px solid var(--line);
-    border-radius:999px;transition:border-color .3s var(--ease), color .3s var(--ease);
+    font-family:var(--mono);
+    font-size:.6rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--muted);
+    white-space:nowrap;
+    padding:9px 14px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    background:rgba(255,255,255,.35);
+    transition:border-color .3s var(--ease), color .3s var(--ease), background .3s var(--ease);
   }
-  .company:hover .tag{border-color:rgba(168,127,61,.5);color:var(--gold-deep)}
+  .company:hover .tag{
+    border-color:rgba(168,127,61,.45);
+    color:var(--gold-deep);
+    background:rgba(168,127,61,.08);
+  }
 
   .page-cta{
-    margin-top:clamp(36px,5vh,56px);
-    display:flex;flex-wrap:wrap;align-items:center;gap:18px 28px;
+    margin-top:clamp(40px,6vh,64px);
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:16px 28px;
   }
   .page-cta a{
-    font-family:var(--serif);font-size:1.1rem;
-    border-bottom:1px solid rgba(168,127,61,.55);padding-bottom:4px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-weight:600;
+    font-size:1.02rem;
+    letter-spacing:-.01em;
+    padding-bottom:5px;
+    border-bottom:1px solid rgba(168,127,61,.55);
     transition:color .25s var(--ease), border-color .25s var(--ease);
   }
-  .page-cta a:hover{color:var(--gold-deep);border-color:var(--gold-deep)}
-
-  footer{
-    background:var(--ink);color:rgba(244,239,228,.5);
-    border-top:1px solid rgba(244,239,228,.13);padding:26px 0 34px;
+  .page-cta a.ghost{
+    font-weight:500;
+    color:var(--muted);
+    border-color:var(--line);
   }
-  .foot-inner{display:flex;align-items:center;justify-content:space-between;gap:14px 32px;flex-wrap:wrap;font-size:.78rem}
+  .page-cta a:hover{color:var(--gold-deep);border-color:var(--gold-deep)}
+  .page-cta a svg{transition:transform .3s var(--ease)}
+  .page-cta a:hover svg{transform:translate(2px,-2px)}
+  .page-cta a.ghost:hover svg{transform:translateX(-3px)}
+
+  .ink-band{
+    margin-top:auto;
+    background:
+      radial-gradient(700px 380px at 85% 0%, rgba(201,161,91,.18), transparent 60%),
+      linear-gradient(168deg, #1C1813 0%, #0A0908 100%);
+    color:rgba(244,239,228,.55);
+  }
+  footer{
+    padding:26px 0 34px;
+    border-top:1px solid rgba(244,239,228,.1);
+  }
+  .foot-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px 32px;
+    flex-wrap:wrap;
+    font-size:.78rem;
+  }
   .foot-inner .sep{opacity:.4;margin:0 9px}
 
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .85s var(--ease), transform .85s var(--ease)}
@@ -146,17 +289,29 @@
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
     .reveal{opacity:1;transform:none;transition:none}
-    .company,.company .idx,.company .tag{transition:none}
+    .company{transition:none}
+    .company:hover{transform:none}
   }
+
+  @media (max-width:900px){
+    .page-intro{grid-template-columns:1fr;gap:18px}
+    .company{
+      grid-template-columns:56px minmax(0,1fr);
+      align-items:start;
+    }
+    .company .meta{
+      grid-column:2;
+      align-items:flex-start;
+      margin-top:4px;
+    }
+  }
+
   @media (max-width:760px){
     .nav-inner{height:68px}
     .nav-links{display:none}
     .brand-mark{width:30px;height:30px}
-    .brand-name{font-size:1.02rem}
-    .company{grid-template-columns:40px minmax(0,1fr);align-items:start;gap:14px}
-    .company .tag{grid-column:2;justify-self:start;margin-top:4px}
-    .company:hover{padding-left:10px}
-    .section-head{flex-direction:column;align-items:flex-start}
+    .brand-name{font-size:1.12rem}
+    .company{padding:22px 18px;gap:14px}
   }
 </style>
 </head>
@@ -209,20 +364,29 @@
   </header>
 
   <main>
-    <section class="section">
+    <section class="page">
       <div class="wrap">
-        <div class="section-head reveal">
-          <h1>Companies</h1>
+        <div class="page-intro reveal">
+          <div>
+            <p class="eyebrow label">Portfolio</p>
+            <h1>Companies</h1>
+          </div>
+          <p class="lede">
+            Four operating lines under one roof —
+            <em>software, hardware, and consulting.</em>
+          </p>
         </div>
 
-        <div class="companies">
+        <div class="ledger">
           <article class="company reveal">
             <span class="idx">01</span>
             <div>
               <h2>Private AI Systems</h2>
               <p>A private system that keeps your data off big public clouds.</p>
             </div>
-            <span class="tag">Hardware · Software</span>
+            <div class="meta">
+              <span class="tag">Hardware · Software</span>
+            </div>
           </article>
 
           <article class="company reveal">
@@ -231,7 +395,9 @@
               <h2>MSP Device Lifecycle</h2>
               <p>Programming, services, and consulting.</p>
             </div>
-            <span class="tag">Services · Consulting</span>
+            <div class="meta">
+              <span class="tag">Services · Consulting</span>
+            </div>
           </article>
 
           <article class="company reveal">
@@ -240,7 +406,9 @@
               <h2>Cloud Agent Marketplace</h2>
               <p>Cloud agents for Azure and beyond.</p>
             </div>
-            <span class="tag">Platform · Marketplace</span>
+            <div class="meta">
+              <span class="tag">Platform · Marketplace</span>
+            </div>
           </article>
 
           <article class="company reveal">
@@ -249,23 +417,37 @@
               <h2>Super Pars</h2>
               <p>An AI swing app for golf — with apparel alongside.</p>
             </div>
-            <span class="tag">AI · Apparel</span>
+            <div class="meta">
+              <span class="tag">AI · Apparel</span>
+            </div>
           </article>
         </div>
 
         <div class="page-cta reveal">
-          <a href="/#contact">Get in touch</a>
-          <a href="/">Back home</a>
+          <a href="/#contact">
+            Get in touch
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M4 12 12 4M5.5 4H12v6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a class="ghost" href="/">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M13.5 8H2.5M6.5 4 2.5 8l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Back home
+          </a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap foot-inner">
-      <div>© 2026 Augmatic Holdings LLC<span class="sep">·</span>Suffolk County, NY</div>
-    </div>
-  </footer>
+  <div class="ink-band">
+    <footer>
+      <div class="wrap foot-inner">
+        <div>© 2026 Augmatic Holdings LLC<span class="sep">·</span>Suffolk County, NY</div>
+      </div>
+    </footer>
+  </div>
 
   <script>
     (function () {
