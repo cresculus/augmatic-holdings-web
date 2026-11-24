@@ -7,9 +7,9 @@ Public site for **Augmatic Holdings LLC** → [augmaticholdings.com](https://aug
 | | |
 |---|---|
 | **Name** | Augmatic Holdings |
-| **Slogan** | Base metal to gold |
-| **Process line** | Augment · Automate · Ascend |
-| **Mark** | Steel form → automatic process → gold form (`logo.svg`) |
+| **Line** | Technology holdings. Built to operate. |
+| **Standard** | Augmented by design. Automated by default. |
+| **Mark** | Split ink / gold A (embedded SVG) |
 | **Contact** | purchasing@augmaticholdings.com |
 
 ## Local
@@ -21,4 +21,3 @@ npm start
 ## Railway
 
 Deploy from GitHub (`cresculus/augmatic-holdings-web`). Start command is in `package.json`.
-Attach custom domain `augmaticholdings.com`.
