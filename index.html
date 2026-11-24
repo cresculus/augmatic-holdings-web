@@ -32,10 +32,18 @@
 
   *,*::before,*::after{box-sizing:border-box}
 
-  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  html{
+    scroll-behavior:smooth;
+    -webkit-text-size-adjust:100%;
+    height:100%;
+  }
 
   body{
     margin:0;
+    min-height:100%;
+    min-height:100dvh;
+    display:flex;
+    flex-direction:column;
     background:
       radial-gradient(1100px 560px at 82% -12%, #FCF8EC 0%, rgba(252,248,236,0) 60%),
       radial-gradient(900px 520px at -8% 6%, #F8F2E4 0%, rgba(248,242,228,0) 58%),
@@ -47,6 +55,13 @@
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
     overflow-x:hidden;
+  }
+
+  main{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    min-height:0;
   }
 
   /* paper grain */
@@ -170,13 +185,19 @@
   .nav-cta:hover svg{transform:translate(2px,-2px)}
 
   /* ---------- HERO ---------- */
-  .hero{padding:clamp(64px,9vh,108px) 0 clamp(56px,8vh,92px)}
+  .hero{
+    flex:1;
+    display:flex;
+    align-items:center;
+    padding:clamp(48px,7vh,96px) 0 clamp(40px,6vh,72px);
+  }
 
   .hero-grid{
     display:grid;
     grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);
     gap:clamp(40px,6vw,84px);
     align-items:center;
+    width:100%;
   }
 
   .eyebrow{
@@ -270,35 +291,119 @@
   .ghost-link:hover{color:var(--ink)}
   .ghost-link:hover svg{transform:translateY(3px)}
 
-  /* hero standard (replaces mark plate) */
+  /* hero standard — ink field + orbital rings */
   .hero-standard{
     position:relative;
-    background:var(--paper-2);
-    border:1px solid var(--line);
+    isolation:isolate;
+    overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 88% 12%, rgba(201,161,91,.22), transparent 55%),
+      radial-gradient(90% 80% at 8% 92%, rgba(201,161,91,.1), transparent 50%),
+      linear-gradient(160deg, #1C1813 0%, #0F0D0B 55%, #17130F 100%);
+    border:1px solid rgba(201,161,91,.28);
     border-radius:2px;
-    padding:clamp(28px,4vw,40px) clamp(24px,3.4vw,36px);
-    min-height:280px;
+    padding:clamp(36px,5vw,52px) clamp(28px,3.8vw,44px);
+    min-height:320px;
     display:flex;
     flex-direction:column;
-    justify-content:center;
-    background-image:
-      linear-gradient(var(--line-soft) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
-    background-size:26px 26px;
-    background-position:center;
+    justify-content:flex-end;
+    color:var(--paper-2);
+    box-shadow:
+      inset 0 1px 0 rgba(243,223,172,.08),
+      0 28px 60px -36px rgba(20,17,14,.55);
   }
-  .hero-standard .label{display:block;margin-bottom:18px}
+  .hero-standard::before,
+  .hero-standard::after{
+    content:"";
+    position:absolute;
+    pointer-events:none;
+    border-radius:50%;
+    border:1px solid rgba(201,161,91,.22);
+  }
+  .hero-standard::before{
+    width:150%;
+    aspect-ratio:1;
+    top:-38%;
+    right:-48%;
+    border-color:rgba(201,161,91,.28);
+    box-shadow:inset 0 0 0 1px rgba(201,161,91,.06);
+    animation:orbit-drift 28s linear infinite;
+  }
+  .hero-standard::after{
+    width:96%;
+    aspect-ratio:1;
+    top:-8%;
+    right:-22%;
+    border-style:dashed;
+    border-color:rgba(201,161,91,.18);
+    animation:orbit-drift 40s linear infinite reverse;
+  }
+  .hero-orbit{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    overflow:hidden;
+  }
+  .hero-orbit span{
+    position:absolute;
+    border-radius:50%;
+    border:1px solid rgba(201,161,91,.14);
+  }
+  .hero-orbit span:nth-child(1){
+    width:62%;
+    aspect-ratio:1;
+    top:18%;
+    right:-6%;
+  }
+  .hero-orbit span:nth-child(2){
+    width:18px;height:18px;
+    top:22%;
+    right:18%;
+    border:none;
+    background:radial-gradient(circle at 35% 35%, #F3DFAC, #A87F3D 55%, transparent 72%);
+    box-shadow:0 0 24px rgba(201,161,91,.45);
+    animation:pulse-node 4.5s ease-in-out infinite;
+  }
+  .hero-orbit span:nth-child(3){
+    width:7px;height:7px;
+    top:48%;
+    right:42%;
+    border:none;
+    background:var(--gold-light);
+    opacity:.7;
+    animation:pulse-node 4.5s ease-in-out infinite .8s;
+  }
+  .hero-standard .label{
+    position:relative;
+    z-index:1;
+    display:block;
+    margin-bottom:18px;
+    color:rgba(244,239,228,.48);
+  }
   .hero-standard-line{
+    position:relative;
+    z-index:1;
     margin:0;
-    max-width:14ch;
+    max-width:13ch;
     font-family:var(--serif);
     font-weight:400;
-    font-size:clamp(1.65rem,2.8vw,2.35rem);
-    line-height:1.22;
+    font-size:clamp(1.7rem,3vw,2.45rem);
+    line-height:1.18;
     letter-spacing:-.02em;
     text-wrap:balance;
+    color:var(--paper-2);
   }
   .hero-standard-line em{font-style:italic;font-weight:400}
+
+  @keyframes orbit-drift{
+    from{transform:rotate(0deg)}
+    to{transform:rotate(360deg)}
+  }
+  @keyframes pulse-node{
+    0%,100%{opacity:.55;transform:scale(1)}
+    50%{opacity:1;transform:scale(1.15)}
+  }
 
   /* ---------- SECTIONS ---------- */
   .section{padding:clamp(60px,9vh,100px) 0;scroll-margin-top:92px}
@@ -384,8 +489,9 @@
     overflow:hidden;
     background:var(--ink);
     color:var(--paper-2);
-    padding:clamp(72px,11vh,120px) 0 clamp(64px,9vh,100px);
+    padding:clamp(56px,8vh,96px) 0 clamp(48px,7vh,80px);
     scroll-margin-top:80px;
+    margin-top:auto;
   }
   .contact::before{
     content:"";
@@ -480,12 +586,16 @@
     html{scroll-behavior:auto}
     .reveal{opacity:1;transform:none;transition:none}
     .company,.company .idx,.company .tag,.email-link svg,.contact-mail svg{transition:none}
+    .hero-standard::before,
+    .hero-standard::after,
+    .hero-orbit span:nth-child(2),
+    .hero-orbit span:nth-child(3){animation:none}
   }
 
   /* ---------- RESPONSIVE ---------- */
   @media (max-width:960px){
     .hero-grid{grid-template-columns:minmax(0,1fr);gap:44px}
-    .hero-standard{max-width:480px;width:100%;min-height:0}
+    .hero-standard{max-width:520px;width:100%;min-height:260px}
     .contact-grid{grid-template-columns:minmax(0,1fr);gap:18px}
   }
 
@@ -604,6 +714,11 @@
         </div>
 
         <aside class="hero-standard reveal" aria-label="Augmatic standard">
+          <div class="hero-orbit" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
           <p class="label">The Augmatic standard</p>
           <p class="hero-standard-line">
             Augmented by design. <em class="gold-foil">Automated by default.</em>
