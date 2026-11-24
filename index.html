@@ -10,22 +10,22 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23191510'/%3E%3Cpath d='M32 13 51 51H41.5L32 30 22.5 51H13Z' fill='%23C9A15B'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Sora:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --paper:#F4EFE4;
-    --paper-2:#FBF7EE;
-    --ink:#191510;
+    --paper:#F2EDE3;
+    --paper-2:#FAF6EE;
+    --ink:#14110E;
     --ink-2:#2A241C;
-    --muted:#6F675A;
-    --line:rgba(25,21,16,.14);
-    --line-soft:rgba(25,21,16,.075);
+    --muted:#6A6358;
+    --line:rgba(20,17,14,.14);
+    --line-soft:rgba(20,17,14,.075);
     --gold:#A87F3D;
     --gold-deep:#7E5A24;
     --gold-light:#E4C892;
-    --serif:"Fraunces",Georgia,"Times New Roman",serif;
-    --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+    --sans:"Sora",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
     --max:1180px;
     --ease:cubic-bezier(.22,.68,.24,1);
   }
@@ -111,10 +111,9 @@
   .brand-text{display:flex;flex-direction:column;line-height:1}
   .brand-name{
     font-family:var(--serif);
-    font-weight:500;
-    font-size:1.12rem;
-    letter-spacing:-.01em;
-    font-variation-settings:"opsz" 30;
+    font-weight:400;
+    font-size:1.28rem;
+    letter-spacing:-.02em;
   }
   .brand-sub{
     font-family:var(--mono);
@@ -199,17 +198,16 @@
     margin:0;
     font-family:var(--serif);
     font-weight:400;
-    font-size:clamp(2.65rem,5.7vw,4.7rem);
-    line-height:.99;
-    letter-spacing:-.028em;
-    font-variation-settings:"opsz" 144;
+    font-size:clamp(2.85rem,6vw,5rem);
+    line-height:.96;
+    letter-spacing:-.03em;
     text-wrap:balance;
   }
   h1 .line2{
     display:block;
     font-style:italic;
-    font-weight:300;
-    margin-top:.07em;
+    font-weight:400;
+    margin-top:.08em;
     letter-spacing:-.02em;
   }
 
@@ -341,15 +339,15 @@
   .manifesto .label{display:block;margin-bottom:22px}
   .manifesto-line{
     margin:0 auto;
-    max-width:24ch;
+    max-width:22ch;
     font-family:var(--serif);
-    font-weight:300;
-    font-size:clamp(1.45rem,3vw,2.35rem);
-    line-height:1.32;
+    font-weight:400;
+    font-size:clamp(1.55rem,3.2vw,2.5rem);
+    line-height:1.28;
     letter-spacing:-.02em;
     text-wrap:balance;
   }
-  .manifesto-line em{font-style:italic;font-weight:300}
+  .manifesto-line em{font-style:italic;font-weight:400}
 
   /* ---------- SECTIONS ---------- */
   .section{padding:clamp(60px,9vh,100px) 0;scroll-margin-top:92px}
@@ -366,10 +364,9 @@
     margin:0;
     font-family:var(--serif);
     font-weight:400;
-    font-size:clamp(1.8rem,3.4vw,2.5rem);
+    font-size:clamp(1.9rem,3.6vw,2.7rem);
     letter-spacing:-.025em;
-    line-height:1.1;
-    font-variation-settings:"opsz" 100;
+    line-height:1.08;
   }
   .section-head .note{
     margin:0;
@@ -405,9 +402,9 @@
     margin:0 0 7px;
     font-family:var(--serif);
     font-weight:400;
-    font-size:clamp(1.28rem,2.1vw,1.62rem);
-    letter-spacing:-.018em;
-    line-height:1.2;
+    font-size:clamp(1.35rem,2.2vw,1.72rem);
+    letter-spacing:-.02em;
+    line-height:1.15;
   }
   .company p{
     margin:0;
@@ -461,14 +458,13 @@
   .contact h2{
     margin:0;
     font-family:var(--serif);
-    font-weight:300;
-    font-size:clamp(2.5rem,6.2vw,4.5rem);
-    line-height:1;
+    font-weight:400;
+    font-size:clamp(2.6rem,6.4vw,4.7rem);
+    line-height:.98;
     letter-spacing:-.03em;
     color:var(--paper-2);
-    font-variation-settings:"opsz" 144;
   }
-  .contact h2 em{font-style:italic;font-weight:300}
+  .contact h2 em{font-style:italic;font-weight:400}
 
   .contact p{
     margin:24px 0 0;
